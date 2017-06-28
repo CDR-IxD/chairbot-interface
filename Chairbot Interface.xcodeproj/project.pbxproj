@@ -14,6 +14,8 @@
 		9506FA211EF31FB9004CDD52 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9506FA1F1EF31FB9004CDD52 /* LaunchScreen.storyboard */; };
 		9506FA2C1EF31FB9004CDD52 /* Chairbot_InterfaceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9506FA2B1EF31FB9004CDD52 /* Chairbot_InterfaceTests.swift */; };
 		9506FA371EF31FB9004CDD52 /* Chairbot_InterfaceUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9506FA361EF31FB9004CDD52 /* Chairbot_InterfaceUITests.swift */; };
+		95286D611F022FC700363787 /* Line.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95286D601F022FC700363787 /* Line.swift */; };
+		95C7C1F71F01B42B00B7C50D /* DrawView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C7C1F61F01B42B00B7C50D /* DrawView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +49,8 @@
 		9506FA321EF31FB9004CDD52 /* Chairbot InterfaceUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Chairbot InterfaceUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9506FA361EF31FB9004CDD52 /* Chairbot_InterfaceUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chairbot_InterfaceUITests.swift; sourceTree = "<group>"; };
 		9506FA381EF31FB9004CDD52 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		95286D601F022FC700363787 /* Line.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Line.swift; sourceTree = "<group>"; };
+		95C7C1F61F01B42B00B7C50D /* DrawView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +107,8 @@
 				9506FA1D1EF31FB9004CDD52 /* Assets.xcassets */,
 				9506FA1F1EF31FB9004CDD52 /* LaunchScreen.storyboard */,
 				9506FA221EF31FB9004CDD52 /* Info.plist */,
+				95C7C1F61F01B42B00B7C50D /* DrawView.swift */,
+				95286D601F022FC700363787 /* Line.swift */,
 			);
 			path = "Chairbot Interface";
 			sourceTree = "<group>";
@@ -260,7 +266,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				9506FA191EF31FB9004CDD52 /* ViewController.swift in Sources */,
+				95286D611F022FC700363787 /* Line.swift in Sources */,
 				9506FA171EF31FB9004CDD52 /* AppDelegate.swift in Sources */,
+				95C7C1F71F01B42B00B7C50D /* DrawView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -507,6 +515,7 @@
 				9506FA3D1EF31FB9004CDD52 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9506FA3E1EF31FB9004CDD52 /* Build configuration list for PBXNativeTarget "Chairbot InterfaceTests" */ = {
 			isa = XCConfigurationList;
@@ -515,6 +524,7 @@
 				9506FA401EF31FB9004CDD52 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9506FA411EF31FB9004CDD52 /* Build configuration list for PBXNativeTarget "Chairbot InterfaceUITests" */ = {
 			isa = XCConfigurationList;
@@ -523,6 +533,7 @@
 				9506FA431EF31FB9004CDD52 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

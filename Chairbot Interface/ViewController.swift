@@ -10,6 +10,9 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBAction func clearTapped() {
+        
+    }
 
 }
 
