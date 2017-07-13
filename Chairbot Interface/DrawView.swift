@@ -44,9 +44,14 @@ class DrawView: UIView {
             context?.move(to: CGPoint(x: line.start.x, y: line.start.y))
             context?.addLine(to: CGPoint(x: line.end.x, y: line.end.y))
         }
+        context!.setLineCap(CGLineCap.round)
         context!.setStrokeColor(red: 0, green: 0, blue: 0, alpha: 1)
         context!.setLineWidth(5)
         context!.strokePath()
+    }
+    
+    func sendLines(_ lines: [Line]) {
+
     }
     
 
