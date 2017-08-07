@@ -31,7 +31,7 @@ class ViewController: UIViewController {
         let json: [String: Any] = [ "path": pathPoints ]
         let jsonData = try? JSONSerialization.data(withJSONObject: json)
         
-        var request = URLRequest(url: URL(string: "http://abhays-macbook-pro.local:5000/path")!)
+       var request = URLRequest(url: URL(string: "http://ubuntu-cdr.local:5000/path")!)
         request.httpMethod = "POST"
         request.httpBody = jsonData
         request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
@@ -50,6 +50,31 @@ class ViewController: UIViewController {
         task.resume()
         
     }
+    
+    @IBAction func stopChairbot(_ sender: Any) {
+        var request = URLRequest(url: URL(string: "http://ubuntu-cdr.local:5000/stop")!)
+        request.httpMethod = "POST"
+        let json: [String: Any] = [ "path": [] ]
+        let jsonData = try? JSONSerialization.data(withJSONObject: json)
+        request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
+        request.httpBody = jsonData
+        
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            guard let data = data, error == nil else {
+                print(error?.localizedDescription ?? "No data")
+                return
+            }
+            let responseJSON = try? JSONSerialization.jsonObject(with: data, options: [])
+            if let responseJSON = responseJSON as? [String: Any] {
+                print(responseJSON)
+            }
+        }
+        
+        task.resume()
+
+    }
+    
+    
 
 }
 
