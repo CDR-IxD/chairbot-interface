@@ -73,8 +73,17 @@ class ViewController: UIViewController {
         task.resume()
 
     }
-    
-    
 
+    @IBOutlet weak var webView: UIWebView!
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        let url = NSURL (string: "http://ubuntu-cdr.local:8080/view-stream.html")
+        URLCache.shared.removeAllCachedResponses()
+        URLCache.shared.diskCapacity = 0
+        URLCache.shared.memoryCapacity = 0
+        let request = NSURLRequest(url: url! as URL)
+        webView.loadRequest(request as URLRequest)
+    }
 }
 
