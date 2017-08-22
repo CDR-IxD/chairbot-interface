@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import WebKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, WKUIDelegate {
     
     @IBOutlet var drawView: AnyObject!
 
@@ -74,16 +75,14 @@ class ViewController: UIViewController {
 
     }
 
-    @IBOutlet weak var webView: UIWebView!
+    @IBOutlet weak var webView: WKWebView!
     override func viewDidLoad() {
         super.viewDidLoad()
 
         let url = NSURL (string: "http://ubuntu-cdr.local:8080/view-stream.html")
         URLCache.shared.removeAllCachedResponses()
-        URLCache.shared.diskCapacity = 0
-        URLCache.shared.memoryCapacity = 0
         let request = NSURLRequest(url: url! as URL)
-        webView.loadRequest(request as URLRequest)
+        webView.load(request as URLRequest)
     }
 }
 
