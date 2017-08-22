@@ -7,9 +7,10 @@
 //
 
 import UIKit
-import WebKit
+import AVKit
+import AVFoundation
 
-class ViewController: UIViewController, WKUIDelegate {
+class ViewController: UIViewController {
     
     @IBOutlet var drawView: AnyObject!
 
@@ -74,15 +75,18 @@ class ViewController: UIViewController, WKUIDelegate {
         task.resume()
 
     }
-
-    @IBOutlet weak var webView: WKWebView!
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        let url = NSURL (string: "http://ubuntu-cdr.local:8080/view-stream.html")
-        URLCache.shared.removeAllCachedResponses()
-        let request = NSURLRequest(url: url! as URL)
-        webView.load(request as URLRequest)
+    
+    @IBOutlet weak var videoView: UIView!
+    
+    override func viewDidAppear(_ animated: Bool) {
+        let videoURL = URL(string: "ws://ubuntu-cdr.local:8082/")
+        let player = AVPlayer(url: videoURL!)
+        let playerLayer = AVPlayerLayer(player: player)
+        playerLayer.frame = self.videoView.bounds
+        self.videoView.layer.addSublayer(playerLayer)
+        player.play()
     }
+    
+
 }
 
