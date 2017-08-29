@@ -38,7 +38,7 @@
                                     <action selector="sendLines" destination="BYZ-38-t0r" eventType="touchUpInside" id="WS2-CN-Xqy"/>
                                 </connections>
                             </button>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u53-oE-Rfh">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u53-oE-Rfh">
                                 <rect key="frame" x="656" y="20" width="136" height="88"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.93942769969999995" green="0.92910915289999996" blue="0.94383500649999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

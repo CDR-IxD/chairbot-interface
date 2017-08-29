@@ -37,9 +37,8 @@ class ViewController: UIViewController, WKUIDelegate {
         let json: [String: Any] = [ "path": pathPoints ]
         let jsonData = try? JSONSerialization.data(withJSONObject: json)
         
-       // var request = URLRequest(url: URL(string: "http://ubuntu-cdr.local:5000/path")!)
+       var request = URLRequest(url: URL(string: "http://ubuntu-cdr.local:5000/path")!)
         
-        var request = URLRequest(url: URL(string: "http://localhost:5000/path")!)
         
         request.httpMethod = "POST"
         request.httpBody = jsonData
@@ -54,10 +53,12 @@ class ViewController: UIViewController, WKUIDelegate {
             if let responseJSON = responseJSON as? [String: String] {
                 print(responseJSON["status"]!)
                 if responseJSON["status"] == "SUCCESS" {
+                    /*
                     self.executeButton.isHidden = true
                     self.clearButton.isHidden = true
                     self.stopButton.isHidden = false
                     self.drawUIView.isUserInteractionEnabled = false
+                    */
                 }
             }
         }
@@ -65,8 +66,8 @@ class ViewController: UIViewController, WKUIDelegate {
     }
     
     @IBAction func stopChairbot(_ sender: Any) {
-        // var request = URLRequest(url: URL(string: "http://ubuntu-cdr.local:5000/stop")!)
-        var request = URLRequest(url: URL(string: "http://localhost:5000/stop")!)
+        var request = URLRequest(url: URL(string: "http://ubuntu-cdr.local:5000/stop")!)
+
         
         request.httpMethod = "POST"
         let json: [String: Any] = [ "path": [] ]
@@ -83,10 +84,12 @@ class ViewController: UIViewController, WKUIDelegate {
             if let responseJSON = responseJSON as? [String: String] {
                 print(responseJSON)
                 if responseJSON["status"] == "SUCCESS" {
+                    /*
                     self.executeButton.isHidden = false
                     self.clearButton.isHidden = false
                     self.stopButton.isHidden = true
                     self.drawUIView.isUserInteractionEnabled = true
+                    */
                 }
             }
         }
