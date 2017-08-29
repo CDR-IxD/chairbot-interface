@@ -38,6 +38,19 @@
                                     <action selector="sendLines" destination="BYZ-38-t0r" eventType="touchUpInside" id="WS2-CN-Xqy"/>
                                 </connections>
                             </button>
+                            <button hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="44I-hA-TYa">
+                                <rect key="frame" x="444" y="20" width="136" height="88"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.93942769969999995" green="0.92910915289999996" blue="0.94383500649999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <state key="normal" title="Execute">
+                                    <color key="titleColor" red="0.5137427137305699" green="0.5137427137305699" blue="0.5137427137305699" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleShadowColor" red="0.62680365169999996" green="1" blue="0.9034305748" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="sendLines" destination="BYZ-38-t0r" eventType="touchUpInside" id="0S2-QG-TiJ"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u53-oE-Rfh">
                                 <rect key="frame" x="656" y="20" width="136" height="88"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -62,10 +75,36 @@
                                     <action selector="clearTapped" destination="BYZ-38-t0r" eventType="touchUpInside" id="5C7-DP-TwD"/>
                                 </connections>
                             </button>
+                            <button hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dIo-Vl-Pr3">
+                                <rect key="frame" x="228" y="20" width="136" height="88"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.93942769969999995" green="0.92910915289999996" blue="0.94383500649999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <state key="normal" title="Clear">
+                                    <color key="titleColor" red="0.54049951424870468" green="0.54049951424870468" blue="0.54049951424870468" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleShadowColor" red="0.62680365169999996" green="1" blue="0.9034305748" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="clearTapped" destination="BYZ-38-t0r" eventType="touchUpInside" id="94I-Jn-HCa"/>
+                                </connections>
+                            </button>
                             <view opaque="NO" alpha="0.55000000000000004" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LOT-0B-Fe1" customClass="DrawView" customModule="Chairbot_Interface" customModuleProvider="target">
                                 <rect key="frame" x="20" y="128" width="984" height="620"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </view>
+                            <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qTu-SQ-5bo">
+                                <rect key="frame" x="656" y="20" width="136" height="88"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.93942769969999995" green="0.92910915289999996" blue="0.94383500649999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <state key="normal" title="Stop">
+                                    <color key="titleColor" red="0.53272749352331605" green="0.53272749352331605" blue="0.53272749352331605" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleShadowColor" red="0.62680365169999996" green="1" blue="0.9034305748" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="stopChairbot:" destination="BYZ-38-t0r" eventType="touchUpInside" id="W3i-Iq-153"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
@@ -74,6 +113,9 @@
                         <outlet property="drawUIView" destination="LOT-0B-Fe1" id="bUo-S8-sxR"/>
                         <outlet property="drawView" destination="LOT-0B-Fe1" id="MCE-dT-5xF"/>
                         <outlet property="executeButton" destination="bc2-hb-ag3" id="Qkg-qT-SmA"/>
+                        <outlet property="greyClearButton" destination="dIo-Vl-Pr3" id="Vgk-pk-VaY"/>
+                        <outlet property="greyExecuteButton" destination="44I-hA-TYa" id="Ute-0A-UqH"/>
+                        <outlet property="greyStopButton" destination="qTu-SQ-5bo" id="sXq-OP-DbE"/>
                         <outlet property="stopButton" destination="u53-oE-Rfh" id="ddN-nB-MOf"/>
                         <outlet property="webView" destination="B9F-oi-tFE" id="o3H-Z8-29M"/>
                     </connections>

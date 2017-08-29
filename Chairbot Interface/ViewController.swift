@@ -21,52 +21,87 @@ class ViewController: UIViewController, WKUIDelegate {
     
     @IBOutlet weak var drawUIView: UIView!
     @IBOutlet weak var executeButton: UIButton!
+    @IBOutlet weak var greyExecuteButton: UIButton!
     @IBOutlet weak var clearButton: UIButton!
+    @IBOutlet weak var greyClearButton: UIButton!
     @IBOutlet weak var stopButton: UIButton!
+    @IBOutlet weak var greyStopButton: UIButton!
+    
+    func buttonStateOne() {
+        self.executeButton.isHidden = false
+        self.clearButton.isHidden = false
+        self.stopButton.isHidden = true
+        self.greyExecuteButton.isHidden = true
+        self.greyClearButton.isHidden = true
+        self.greyStopButton.isHidden = false
+        self.drawUIView.isUserInteractionEnabled = true
+    }
+    
+    func buttonStateTwo() {
+        self.executeButton.isHidden = true
+        self.clearButton.isHidden = true
+        self.stopButton.isHidden = true
+        self.greyExecuteButton.isHidden = false
+        self.greyClearButton.isHidden = false
+        self.greyStopButton.isHidden = false
+        self.drawUIView.isUserInteractionEnabled = false
+    }
+    
+    func buttonStateThree() {
+        self.executeButton.isHidden = true
+        self.clearButton.isHidden = true
+        self.stopButton.isHidden = false
+        self.greyExecuteButton.isHidden = false
+        self.greyClearButton.isHidden = false
+        self.greyStopButton.isHidden = true
+        self.drawUIView.isUserInteractionEnabled = false
+    }
 
     @IBAction func sendLines() {
+        self.buttonStateTwo()
+        
+        // Draw a path
         let theDrawView: DrawView = drawView as! DrawView
-        
-
         var pathPoints = [Any]()
-        
         for line in theDrawView.lines {
            pathPoints.append([line.start.x, line.start.y])
         }
  
+        // Send the path
         let json: [String: Any] = [ "path": pathPoints ]
         let jsonData = try? JSONSerialization.data(withJSONObject: json)
-        
-       var request = URLRequest(url: URL(string: "http://ubuntu-cdr.local:5000/path")!)
-        
-        
+        // var request = URLRequest(url: URL(string: "http://ubuntu-cdr.local:5000/path")!)
+        var request = URLRequest(url: URL(string: "http://localhost:5000/path")!)
         request.httpMethod = "POST"
         request.httpBody = jsonData
         request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
-        
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             guard let data = data, error == nil else {
                 print(error?.localizedDescription ?? "No data")
                 return
             }
+            var responseString: String = ""
             let responseJSON = try? JSONSerialization.jsonObject(with: data, options: [])
             if let responseJSON = responseJSON as? [String: String] {
-                print(responseJSON["status"]!)
-                if responseJSON["status"] == "SUCCESS" {
-                    /*
-                    self.executeButton.isHidden = true
-                    self.clearButton.isHidden = true
-                    self.stopButton.isHidden = false
-                    self.drawUIView.isUserInteractionEnabled = false
-                    */
+                responseString = responseJSON["status"]!
+            }
+            DispatchQueue.main.async {
+                if responseString == "SUCCESS" {
+                    self.buttonStateThree()
+                } else {
+                    self.buttonStateOne()
                 }
             }
         }
         task.resume()
+        
     }
     
     @IBAction func stopChairbot(_ sender: Any) {
-        var request = URLRequest(url: URL(string: "http://ubuntu-cdr.local:5000/stop")!)
+        self.buttonStateTwo()
+        
+        // var request = URLRequest(url: URL(string: "http://ubuntu-cdr.local:5000/stop")!)
+        var request = URLRequest(url: URL(string: "http://localhost:5000/stop")!)
 
         
         request.httpMethod = "POST"
@@ -80,17 +115,18 @@ class ViewController: UIViewController, WKUIDelegate {
                 print(error?.localizedDescription ?? "No data")
                 return
             }
+            var responseString: String = ""
             let responseJSON = try? JSONSerialization.jsonObject(with: data, options: [])
             if let responseJSON = responseJSON as? [String: String] {
-                print(responseJSON)
-                if responseJSON["status"] == "SUCCESS" {
-                    /*
-                    self.executeButton.isHidden = false
-                    self.clearButton.isHidden = false
-                    self.stopButton.isHidden = true
-                    self.drawUIView.isUserInteractionEnabled = true
-                    */
+                responseString = responseJSON["status"]!
+                DispatchQueue.main.async {
+                    if responseString == "SUCCESS" {
+                        self.buttonStateOne()
+                    } else {
+                        self.buttonStateThree()
+                    }
                 }
+
             }
         }
         
