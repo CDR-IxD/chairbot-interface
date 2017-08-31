@@ -79,13 +79,16 @@ class ViewController: UIViewController, WKUIDelegate {
         // Send the path
         let json: [String: Any] = [ "path": pathPoints ]
         let jsonData = try? JSONSerialization.data(withJSONObject: json)
-        var request = URLRequest(url: URL(string: "http://ubuntu-cdr.local:5000/path")!)
+        var request = URLRequest(url: URL(string: "http://ubuntu-cdr.local:5000/path")!, timeoutInterval: 2.0)
         request.httpMethod = "POST"
         request.httpBody = jsonData
         request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             guard let data = data, error == nil else {
                 print(error?.localizedDescription ?? "No data")
+                DispatchQueue.main.async {
+                    self.buttonStateOne()
+                }
                 return
             }
             var responseString: String = ""
