@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		62FDE3B5F41629E45ABB0591 /* Pods_Chairbot_Interface.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 179FAB4224BB2915C401954C /* Pods_Chairbot_Interface.framework */; };
 		9506FA171EF31FB9004CDD52 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9506FA161EF31FB9004CDD52 /* AppDelegate.swift */; };
 		9506FA191EF31FB9004CDD52 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9506FA181EF31FB9004CDD52 /* ViewController.swift */; };
 		9506FA1C1EF31FB9004CDD52 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9506FA1A1EF31FB9004CDD52 /* Main.storyboard */; };
@@ -36,6 +37,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		05F35137B9BE503D33A2020D /* Pods-Chairbot Interface.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chairbot Interface.release.xcconfig"; path = "Pods/Target Support Files/Pods-Chairbot Interface/Pods-Chairbot Interface.release.xcconfig"; sourceTree = "<group>"; };
+		179FAB4224BB2915C401954C /* Pods_Chairbot_Interface.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Chairbot_Interface.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		245ABBDFF04F3373457AA2CD /* Pods-Chairbot Interface.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chairbot Interface.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Chairbot Interface/Pods-Chairbot Interface.debug.xcconfig"; sourceTree = "<group>"; };
 		9506FA131EF31FB9004CDD52 /* Chairbot Interface.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Chairbot Interface.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9506FA161EF31FB9004CDD52 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9506FA181EF31FB9004CDD52 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -58,6 +62,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				62FDE3B5F41629E45ABB0591 /* Pods_Chairbot_Interface.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +83,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		71CD70190D361881CB1FD8B2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				179FAB4224BB2915C401954C /* Pods_Chairbot_Interface.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		9506FA0A1EF31FB9004CDD52 = {
 			isa = PBXGroup;
 			children = (
@@ -85,6 +98,8 @@
 				9506FA2A1EF31FB9004CDD52 /* Chairbot InterfaceTests */,
 				9506FA351EF31FB9004CDD52 /* Chairbot InterfaceUITests */,
 				9506FA141EF31FB9004CDD52 /* Products */,
+				D4FAC9753373A9A65B88E3BB /* Pods */,
+				71CD70190D361881CB1FD8B2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -131,6 +146,15 @@
 			path = "Chairbot InterfaceUITests";
 			sourceTree = "<group>";
 		};
+		D4FAC9753373A9A65B88E3BB /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				245ABBDFF04F3373457AA2CD /* Pods-Chairbot Interface.debug.xcconfig */,
+				05F35137B9BE503D33A2020D /* Pods-Chairbot Interface.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -138,9 +162,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9506FA3B1EF31FB9004CDD52 /* Build configuration list for PBXNativeTarget "Chairbot Interface" */;
 			buildPhases = (
+				177DB444B19B7D26F87CFE7E /* [CP] Check Pods Manifest.lock */,
 				9506FA0F1EF31FB9004CDD52 /* Sources */,
 				9506FA101EF31FB9004CDD52 /* Frameworks */,
 				9506FA111EF31FB9004CDD52 /* Resources */,
+				350E2C8E0B4C19A1887F773E /* [CP] Embed Pods Frameworks */,
+				D55782E389D19DBF17460336 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -262,6 +289,60 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		177DB444B19B7D26F87CFE7E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Chairbot Interface-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		350E2C8E0B4C19A1887F773E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Chairbot Interface/Pods-Chairbot Interface-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Starscream/Starscream.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Starscream.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Chairbot Interface/Pods-Chairbot Interface-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D55782E389D19DBF17460336 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Chairbot Interface/Pods-Chairbot Interface-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		9506FA0F1EF31FB9004CDD52 /* Sources */ = {
@@ -425,6 +506,7 @@
 		};
 		9506FA3C1EF31FB9004CDD52 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 245ABBDFF04F3373457AA2CD /* Pods-Chairbot Interface.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -442,6 +524,7 @@
 		};
 		9506FA3D1EF31FB9004CDD52 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 05F35137B9BE503D33A2020D /* Pods-Chairbot Interface.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";

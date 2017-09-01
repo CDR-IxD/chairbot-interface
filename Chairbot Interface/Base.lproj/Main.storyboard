@@ -84,7 +84,8 @@
                                     <color key="titleShadowColor" red="0.62680365169999996" green="1" blue="0.9034305748" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="sendLines" destination="BYZ-38-t0r" eventType="touchUpInside" id="yf9-zD-26h"/>
+                                    <action selector="forwardDown:" destination="BYZ-38-t0r" eventType="touchDown" id="Fuk-6r-kUB"/>
+                                    <action selector="forwardUp:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QGt-JX-pVj"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Goa-WW-LY3">
@@ -95,9 +96,6 @@
                                 <state key="normal" title="Left">
                                     <color key="titleShadowColor" red="0.62680365169999996" green="1" blue="0.9034305748" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
-                                <connections>
-                                    <action selector="clearTapped" destination="BYZ-38-t0r" eventType="touchUpInside" id="7uv-7F-1Lr"/>
-                                </connections>
                             </button>
                             <button hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dIo-Vl-Pr3">
                                 <rect key="frame" x="320" y="20" width="100" height="60"/>
@@ -137,9 +135,6 @@
                                 <state key="normal" title="Right">
                                     <color key="titleShadowColor" red="0.62680365169999996" green="1" blue="0.9034305748" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
-                                <connections>
-                                    <action selector="stopChairbot:" destination="BYZ-38-t0r" eventType="touchUpInside" id="KFc-0t-51j"/>
-                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

@@ -8,6 +8,7 @@
 
 import UIKit
 import WebKit
+import Starscream
 
 class ViewController: UIViewController, WKUIDelegate {
     
@@ -146,7 +147,13 @@ class ViewController: UIViewController, WKUIDelegate {
     
     // Prepare WKWebView for displaying the video feed
     @IBOutlet weak var webView: WKWebView!
+    
+    // Setup the websocket
+    let socket = WebSocket(url: URL(string: "ws://localhost:7080/")!)
+    
+    // Functionality on view load
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         if #available(iOS 9.0, *)
         {
@@ -173,6 +180,66 @@ class ViewController: UIViewController, WKUIDelegate {
         URLCache.shared.memoryCapacity = 0
         let request = NSURLRequest(url: url! as URL)
         webView.load(request as URLRequest)
+        
+        // Websocket stuff here
+        socket.delegate = self as WebSocketDelegate
+        socket.connect()
+
+    }
+    
+    // Deinitialize websocket on view
+    deinit {
+        socket.disconnect(forceTimeout: 0)
+        socket.delegate = nil
+    }
+    
+    var timer: Timer!
+    
+    @IBAction func forwardDown(_ sender: Any) {
+        moveForward()
+        
+        timer = Timer.scheduledTimer(timeInterval: 0.3, target: self, selector: #selector(ViewController.moveForward), userInfo: nil, repeats: true)
+    }
+   
+    @IBAction func forwardUp(_ sender: Any) {
+        timer.invalidate()
+    }
+    
+    
+    func moveForward() {
+        let speed = "20"
+        let lwheeldist = "1"
+        let rwheeldist = "1"
+        socket.write(string: lwheeldist + "," + rwheeldist + "," + speed)
+    }
+
+    
+}
+
+extension ViewController : WebSocketDelegate {
+    
+    public func websocketDidConnect(socket: Starscream.WebSocket) {
+        // socket.write(string: "test")
+        print("success")
+    }
+    
+    public func websocketDidDisconnect(socket: Starscream.WebSocket, error: NSError?) {
+        print("disconnected")
+    }
+    
+    public func websocketDidReceiveMessage(socket: Starscream.WebSocket, text: String) {
+        guard let data = text.data(using: .utf16),
+            let jsonData = try? JSONSerialization.jsonObject(with: data),
+            let jsonDict = jsonData as? [String: Any],
+            let messageType = jsonDict["type"] as? String else {
+                return
+            }
+        print(messageType)
+    }
+    
+    public func websocketDidReceiveData(socket: Starscream.WebSocket, data: Data) {
+        // Noop - Must implement since it's not optional in the protocol
     }
 }
+
 
