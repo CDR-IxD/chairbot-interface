@@ -149,7 +149,7 @@ class ViewController: UIViewController, WKUIDelegate {
     @IBOutlet weak var webView: WKWebView!
     
     // Setup the websocket
-    let socket = WebSocket(url: URL(string: "ws://localhost:7080/")!)
+    let socket = WebSocket(url: URL(string: "ws://neato-04.local:3000/")!)
     
     // Functionality on view load
     override func viewDidLoad() {
@@ -198,21 +198,57 @@ class ViewController: UIViewController, WKUIDelegate {
     @IBAction func forwardDown(_ sender: Any) {
         moveForward()
         
-        timer = Timer.scheduledTimer(timeInterval: 0.3, target: self, selector: #selector(ViewController.moveForward), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(ViewController.moveForward), userInfo: nil, repeats: true)
     }
    
     @IBAction func forwardUp(_ sender: Any) {
         timer.invalidate()
     }
     
-    
     func moveForward() {
-        let speed = "20"
-        let lwheeldist = "1"
-        let rwheeldist = "1"
+        let speed = "80"
+        let lwheeldist = "40"
+        let rwheeldist = "40"
         socket.write(string: lwheeldist + "," + rwheeldist + "," + speed)
+        print("Speed: " + speed + ", lwheeldist: " + lwheeldist + ", rwheeldist: " + rwheeldist)
+    }
+    
+    @IBAction func leftDown(_ sender: Any) {
+        moveLeft()
+        
+        timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(ViewController.moveLeft), userInfo: nil, repeats: true)
+    }
+    
+    @IBAction func leftUp(_ sender: Any) {
+        timer.invalidate()
+    }
+    
+    
+    func moveLeft() {
+        let speed = "80"
+        let lwheeldist = "1"
+        let rwheeldist = "30"
+        socket.write(string: lwheeldist + "," + rwheeldist + "," + speed)
+        print("Speed: " + speed + ", lwheeldist: " + lwheeldist + ", rwheeldist: " + rwheeldist)
+    }
+    
+    @IBAction func rightDown(_ sender: Any) {
+        moveRight()
+        
+        timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(ViewController.moveRight), userInfo: nil, repeats: true)
     }
 
+    @IBAction func rightUp(_ sender: Any) {
+        timer.invalidate()
+    }
+    
+    func moveRight() {
+        let speed = "80"
+        let lwheeldist = "30"
+        let rwheeldist = "1"
+        socket.write(string: lwheeldist + "," + rwheeldist + "," + speed)
+        print("Speed: " + speed + ", lwheeldist: " + lwheeldist + ", rwheeldist: " + rwheeldist)
+    }
     
 }
 
