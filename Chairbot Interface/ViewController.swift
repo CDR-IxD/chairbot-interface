@@ -193,57 +193,54 @@ class ViewController: UIViewController, WKUIDelegate {
         socket.delegate = nil
     }
     
-    var timer: Timer!
     
+    
+    // Motion Logic
+    var timer: Timer!
+    let speed = "100"
+    
+    // Forward button
     @IBAction func forwardDown(_ sender: Any) {
         moveForward()
         
         timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(ViewController.moveForward), userInfo: nil, repeats: true)
     }
-   
     @IBAction func forwardUp(_ sender: Any) {
         timer.invalidate()
     }
-    
     func moveForward() {
-        let speed = "80"
         let lwheeldist = "40"
         let rwheeldist = "40"
         socket.write(string: lwheeldist + "," + rwheeldist + "," + speed)
         print("Speed: " + speed + ", lwheeldist: " + lwheeldist + ", rwheeldist: " + rwheeldist)
     }
     
+    // Left button
     @IBAction func leftDown(_ sender: Any) {
         moveLeft()
         
         timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(ViewController.moveLeft), userInfo: nil, repeats: true)
     }
-    
     @IBAction func leftUp(_ sender: Any) {
         timer.invalidate()
     }
-    
-    
     func moveLeft() {
-        let speed = "80"
         let lwheeldist = "1"
         let rwheeldist = "30"
         socket.write(string: lwheeldist + "," + rwheeldist + "," + speed)
         print("Speed: " + speed + ", lwheeldist: " + lwheeldist + ", rwheeldist: " + rwheeldist)
     }
     
+    // Right button
     @IBAction func rightDown(_ sender: Any) {
         moveRight()
         
         timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(ViewController.moveRight), userInfo: nil, repeats: true)
     }
-
     @IBAction func rightUp(_ sender: Any) {
         timer.invalidate()
     }
-    
     func moveRight() {
-        let speed = "80"
         let lwheeldist = "30"
         let rwheeldist = "1"
         socket.write(string: lwheeldist + "," + rwheeldist + "," + speed)
